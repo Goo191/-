@@ -1,0 +1,57 @@
+{
+  "name": "Storage Management System",
+  "description": "نظام إدارة المخازن المتقدم - يوسف طارق",
+  "repository": "https://github.com/Goo191/-",
+  "logo": "https://laravel.com/img/logomark.min.svg",
+  "keywords": ["laravel", "filament", "storage", "management", "php"],
+  "success_url": "/",
+  "scripts": {
+    "postdeploy": "php artisan migrate --force && php artisan db:seed --force"
+  },
+  "env": {
+    "APP_ENV": {
+      "description": "Application environment",
+      "value": "production"
+    },
+    "APP_DEBUG": {
+      "description": "Application debug mode",
+      "value": "false"
+    },
+    "APP_KEY": {
+      "description": "Application key",
+      "generator": "secret"
+    },
+    "DB_CONNECTION": {
+      "description": "Database connection",
+      "value": "sqlite"
+    },
+    "DB_DATABASE": {
+      "description": "Database name",
+      "value": "database/database.sqlite"
+    },
+    "CACHE_DRIVER": {
+      "description": "Cache driver",
+      "value": "file"
+    },
+    "SESSION_DRIVER": {
+      "description": "Session driver",
+      "value": "file"
+    },
+    "QUEUE_CONNECTION": {
+      "description": "Queue connection",
+      "value": "sync"
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "free"
+    }
+  },
+  "addons": [],
+  "buildpacks": [
+    {
+      "url": "heroku/php"
+    }
+  ]
+}
