@@ -1,15 +1,32 @@
 {
   "version": 2,
+  "buildCommand": "bash vercel-build.sh",
   "builds": [
     {
-      "src": "public/index.php",
+      "src": "api/index.php",
       "use": "@vercel/php"
     }
   ],
   "routes": [
     {
+      "src": "/assets/(.*)",
+      "dest": "/public/assets/$1"
+    },
+    {
+      "src": "/css/(.*)",
+      "dest": "/public/css/$1"
+    },
+    {
+      "src": "/js/(.*)",
+      "dest": "/public/js/$1"
+    },
+    {
+      "src": "/images/(.*)",
+      "dest": "/public/images/$1"
+    },
+    {
       "src": "/(.*)",
-      "dest": "public/index.php"
+      "dest": "api/index.php"
     }
   ],
   "env": {
@@ -21,10 +38,5 @@
     "CACHE_DRIVER": "file",
     "SESSION_DRIVER": "file",
     "QUEUE_CONNECTION": "sync"
-  },
-  "functions": {
-    "public/index.php": {
-      "runtime": "php8.1"
-    }
   }
 }
