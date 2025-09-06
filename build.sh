@@ -1,7 +1,16 @@
 #!/bin/bash
 
+# Render Build Script for Laravel
+echo "Starting Render build..."
+
 # Install dependencies
 composer install --no-dev --optimize-autoloader
+
+# Install Node.js dependencies
+npm install
+
+# Build assets
+npm run build
 
 # Generate application key
 php artisan key:generate
@@ -17,8 +26,4 @@ php artisan config:cache
 php artisan route:cache
 php artisan view:cache
 
-# Build assets
-npm install
-npm run build
-
-echo "Build completed successfully!"
+echo "Render build completed successfully!"
